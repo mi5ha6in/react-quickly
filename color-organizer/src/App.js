@@ -9,7 +9,18 @@ export default function App() {
   return (
     <>
       <AddColorForm
-        onNewColor={(title, color) => alert(`TODO: Create ${title} - ${color}`)}
+        onNewColor={(title, color) => {
+          const newColors = [
+            {
+              id: v4(),
+              rating: 0,
+              title,
+              color,
+            },
+            ...colors,
+          ];
+          setColors(newColors);
+        }}
       />
       <ColorList
         colors={colors}
