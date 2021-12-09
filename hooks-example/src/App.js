@@ -1,6 +1,7 @@
+import { Checkbox } from "./Checkbox";
 
 function App() {
-  return 
+  return <Checkbox />;
 }
 
 export default App;
