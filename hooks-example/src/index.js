@@ -1,10 +1,10 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import Checkbox from "./Checkbox";
+import FavoritePhrase from "./FavoritePhrase";
 
 ReactDOM.render(
   <React.StrictMode>
-    <Checkbox />
+    <FavoritePhrase />
   </React.StrictMode>,
   document.getElementById("root")
 );
