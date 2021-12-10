@@ -22,8 +22,13 @@ export default function FavoritePhrase() {
   }, [value, phrase]);
 
   useEffect(() => {
-    console.log("only once after initial render")
-  }, [])
+    console.log("only once after initial render");
+  }, []);
+
+  useEffect(() => {
+    console.log("Welcome");
+    return () => console.log("goodBay");
+  }, []);
 
   return (
     <>
