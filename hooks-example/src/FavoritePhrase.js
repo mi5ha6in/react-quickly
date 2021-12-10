@@ -11,11 +11,11 @@ export default function FavoritePhrase() {
 
   useEffect(() => {
     console.log(`typing "${value}"`);
-  });
+  }, [value]);
 
   useEffect(() => {
     console.log(`saved phrase: "${phrase}"`);
-  });
+  }, [phrase]);
 
   return (
     <>
