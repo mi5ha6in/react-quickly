@@ -17,6 +17,10 @@ export default function FavoritePhrase() {
     console.log(`saved phrase: "${phrase}"`);
   }, [phrase]);
 
+  useEffect(() => {
+    console.log("either value or phrase has changed");
+  }, [value, phrase]);
+
   return (
     <>
       <label htmlFor="input-phrase">Favorite phrase:</label>
