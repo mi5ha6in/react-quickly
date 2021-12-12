@@ -10,10 +10,11 @@ const useAnyKeyToRender = () => {
 };
 
 export default function AnyKeyToRender() {
+  const words = ['sick', 'powder', 'day']
   useAnyKeyToRender();
   useEffect(() => {
     console.log("fresh render");
-  })
+  }, [words]);
 
-  return <h1>Open the console</h1>
+  return <h1>Open the console</h1>;
 }
