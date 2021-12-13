@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo } from "react";
+import React, { useState, useEffect, useMemo, useCallback } from "react";
 
 const useAnyKeyToRender = () => {
   const [, forceRender] = useState();
@@ -14,9 +14,19 @@ function WordCount({ children = "" }) {
 
   const words = useMemo(() => children.split(" "), [children]);
 
+  const fn = useCallback(() => {
+    console.log("hello");
+    console.log("world");
+  }, []);
+
   useEffect(() => {
     console.log("fresh render");
   }, [words]);
+
+  useEffect(() => {
+    console.log("other fresh render");
+    fn()
+  }, [fn]);
 
   return (
     <>
