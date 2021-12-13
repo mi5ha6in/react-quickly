@@ -1,10 +1,10 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import AnyKeyToRender from "./AnyKeyToRender";
+import BasicUseLayoutEffect from "./BasicUseLayoutEffect"
 
 ReactDOM.render(
   <React.StrictMode>
-    <AnyKeyToRender />
+    <BasicUseLayoutEffect />
   </React.StrictMode>,
   document.getElementById("root")
 );
