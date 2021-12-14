@@ -1,10 +1,10 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import WindowSize from "./WindowSize";
+import MousePosition from "./MousePosition";
 
 ReactDOM.render(
   <React.StrictMode>
-    <WindowSize />
+    <MousePosition />
   </React.StrictMode>,
   document.getElementById("root")
 );
