@@ -1,10 +1,10 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import MousePosition from "./MousePosition";
+import Checkbox from "./Checkbox";
 
 ReactDOM.render(
   <React.StrictMode>
-    <MousePosition />
+    <Checkbox />
   </React.StrictMode>,
   document.getElementById("root")
 );
