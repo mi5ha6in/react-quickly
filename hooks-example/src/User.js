@@ -22,7 +22,13 @@ export default function User() {
       <p>
         Location: {user.city}, {user.state}
       </p>
-      <button>Make Admin</button>
+      <button
+        onClick={() => {
+          setUser({ ...user, admin: true });
+        }}
+      >
+        Make Admin
+      </button>
     </div>
-  )
+  );
 }
