@@ -1,10 +1,10 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import Numbers from "./Numbers";
+import User from "./User";
 
 ReactDOM.render(
   <React.StrictMode>
-    <Numbers />
+    <User />
   </React.StrictMode>,
   document.getElementById("root")
 );
