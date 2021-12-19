@@ -1,9 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, memo } from "react";
 
 const Cat = ({ name }) => {
   console.log(`rendering ${name}`);
   return <p>{name}</p>;
 };
+
+const PureCat = memo(Cat);
 
 export default function CatList() {
   const [cats, setCats] = useState(["Biscuit", "Jungle", "Outlaw"]);
@@ -11,11 +13,11 @@ export default function CatList() {
   return (
     <>
       {cats.map((name, index) => (
-        <Cat key={index} name={name} />
+        <PureCat key={index} name={name} />
       ))}
-      <button onClick={() => setCats([...cats, prompt('Name a cat')])}>
+      <button onClick={() => setCats([...cats, prompt("Name a cat")])}>
         Add a Cat
       </button>
     </>
-  )
+  );
 }
