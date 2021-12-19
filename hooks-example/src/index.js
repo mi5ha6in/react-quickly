@@ -1,10 +1,10 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import User from "./User";
+import CatList from "./CatList";
 
 ReactDOM.render(
   <React.StrictMode>
-    <User />
+    <CatList />
   </React.StrictMode>,
   document.getElementById("root")
 );
