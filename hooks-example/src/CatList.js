@@ -5,7 +5,10 @@ const Cat = ({ name, meow = (f) => f }) => {
   return <p onClick={() => meow(name)}>{name}</p>;
 };
 
-const PureCat = memo(Cat);
+const PureCat = memo(
+  Cat,
+  (prevProps, nextProps) => prevProps.name === nextProps.name
+);
 
 export default function CatList() {
   const [cats, setCats] = useState(["Biscuit", "Jungle", "Outlaw"]);
