@@ -1,10 +1,18 @@
 import React from "react";
 import ReactDOM from "react-dom";
 
-fetch(`https://api.github.com/users/mi5ha6in`)
-  .then((response) => response.json())
-  .then(console.log)
-  .catch(console.error);
+async function requestGithubUser(githubUser) {
+  try {
+    const response = await fetch(`https://api.github.com/users/${githubUser}`);
+
+    const userData = await response.json();
+    console.log(userData);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+requestGithubUser("mi5ha6in");
 
 ReactDOM.render(
   <React.StrictMode></React.StrictMode>,
