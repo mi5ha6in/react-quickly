@@ -1,20 +1,27 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import ReactDOM from "react-dom";
 
-async function requestGithubUser(githubUser) {
-  try {
-    const response = await fetch(`https://api.github.com/users/${githubUser}`);
+function GitHubUser({ login }) {
+  const [data, setData] = useState();
 
-    const userData = await response.json();
-    console.log(userData);
-  } catch (error) {
-    console.error(error);
+  useEffect(() => {
+    if (!login) return;
+    fetch(`https://api.github.com/users/${login}`)
+      .then((response) => response.json())
+      .then(setData)
+      .catch(console.error);
+  }, [login]);
+
+  if (data) {
+    return <pre>{JSON.stringify(data, null, 2)}</pre>
   }
+
+  return null
 }
 
-requestGithubUser("mi5ha6in");
-
 ReactDOM.render(
-  <React.StrictMode></React.StrictMode>,
+  <React.StrictMode>
+    <GitHubUser login="mi5ha6in"/>
+  </React.StrictMode>,
   document.getElementById("root")
 );
