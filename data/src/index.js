@@ -6,6 +6,8 @@ const saveJSON = (key, data) => localStorage.setItem(key, JSON.stringify(data));
 
 function GitHubUser({ login }) {
   const [data, setData] = useState(loadJSON(`user:${login}`));
+  const [error, setError] = useState();
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     if (!data) return;
