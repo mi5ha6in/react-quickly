@@ -8,21 +8,29 @@ const tahoe_peaks = [
   { name: "Mt. Tallac", elevation: 9735 },
 ];
 
-function List({ data = [], renderEmpty }) {
-  if (!data.length) return renderEmpty;
-  return <p>{data.length} items</p>;
+function List({ data = [], renderEmpty, renderItem }) {
+  return !data.length ? (
+    renderEmpty
+  ) : (
+    <ul>
+      {data.map((item, i) => (
+        <li key={i}>{renderItem(item)}</li>
+      ))}
+    </ul>
+  )
 }
 
 function App() {
   return (
-    <List renderEmpty={<p>This list is empty</p>} />
-    // <ul>
-    //   {tahoe_peaks.map((peak, i) => (
-    //     <li key={i}>
-    //       {peak.name} - {peak.elevation.toLocaleString()}
-    //     </li>
-    //   ))}
-    // </ul>
+    <List
+      data={tahoe_peaks}
+      renderEmpty={<p>This list is empty</p>}
+      renderItem={(item) => (
+        <>
+          {item.name} - {item.elevation.toLocaleString()}
+        </>
+      )}
+    />
   );
 }
 
