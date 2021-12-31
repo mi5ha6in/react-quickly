@@ -12,7 +12,7 @@ const tahoe_peaks = [
 const bigList = [...Array(5000)].map(() => ({
   name: faker.name.findName(),
   email: faker.internet.email(),
-  avatar: faker.internet.avatar(),
+  avatar: faker.image.image(),
 }));
 
 function List({ data = [], renderEmpty, renderItem }) {
