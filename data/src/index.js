@@ -1,13 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import { FixedSizeList } from "react-window";
 import faker from "faker";
-
-const tahoe_peaks = [
-  { name: "Freel Peak", elevation: 10891 },
-  { name: "Monument Peak", elevation: 10067 },
-  { name: "Pyramid Peak", elevation: 9983 },
-  { name: "Mt. Tallac", elevation: 9735 },
-];
 
 const bigList = [...Array(5000)].map(() => ({
   name: faker.name.findName(),
@@ -15,32 +9,24 @@ const bigList = [...Array(5000)].map(() => ({
   avatar: faker.image.image(),
 }));
 
-function List({ data = [], renderEmpty, renderItem }) {
-  return !data.length ? (
-    renderEmpty
-  ) : (
-    <ul>
-      {data.map((item, i) => (
-        <li key={i}>{renderItem(item)}</li>
-      ))}
-    </ul>
-  );
-}
-
 function App() {
+  const renderRow = ({ index, style }) => (
+    <div style={{ ...style, ...{ display: "flex" } }}>
+      <img src={bigList[index].avatar} alt={bigList[index].name} width={50} />
+      <p>
+        {bigList[index].name} - {bigList[index].email}
+      </p>
+    </div>
+  );
   return (
-    <List
-      data={bigList}
-      renderEmpty={<p>This list is empty</p>}
-      renderItem={(item) => (
-        <div style={{ display: "flex" }}>
-          <img src={item.avatar} alt={item.name} width={50} />
-          <p>
-            {item.name} - {item.email}
-          </p>
-        </div>
-      )}
-    />
+    <FixedSizeList
+      height={window.innerHeight}
+      width={window.innerWidth - 20}
+      itemCount={bigList.length}
+      itemSize={50}
+    >
+      {renderRow}
+    </FixedSizeList>
   );
 }
 
