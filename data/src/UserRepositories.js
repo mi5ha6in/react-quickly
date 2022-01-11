@@ -15,6 +15,7 @@ export default function UserRepositories({
           repositories={data}
           selectedRepo={selectedRepo}
           onSelect={onSelect}
+          login={login}
         />
       )}
     />
