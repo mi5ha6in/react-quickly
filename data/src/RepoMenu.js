@@ -1,5 +1,4 @@
 import React, { useEffect } from "react";
-import RepositoryReadme from "./ReactMarkdown";
 import { useIterator } from "./useIterator";
 
 export function RepoMenu({ repositories, login, onSelect = (f) => f }) {
@@ -17,7 +16,6 @@ export function RepoMenu({ repositories, login, onSelect = (f) => f }) {
         <p>{name}</p>
         <button onClick={next}>&gt;</button>
       </div>
-      <RepositoryReadme login={login} repo={name}/>
     </>
   );
 }
