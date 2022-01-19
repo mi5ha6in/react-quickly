@@ -4,8 +4,8 @@ import UserRepositories from "./UserRepositories";
 import RepositoryReadme from "./ReactMarkdown";
 
 export default function App() {
-  const [login, setLogin] = useState("mi5ha6in");
-  const [repo, setRepo] = useState("react-quickly");
+  const [login, setLogin] = useState();
+  const [repo, setRepo] = useState();
 
   return (
     <>
