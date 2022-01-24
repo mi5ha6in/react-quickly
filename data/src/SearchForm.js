@@ -1,19 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
 
 export function SearchForm({ login, onSearch }) {
+  const [inputLogin, setInputLogin] = useState(login);
   return (
     <>
       <form
         onSubmit={(e) => {
-          e.preventDefault()
-          console.log(login);
-          onSearch("")
+          e.preventDefault();
+          onSearch(inputLogin);
+          setInputLogin("");
         }}
       >
         <input
           type="text"
-          value={login}
-          onChange={(event) => onSearch(event.target.value)}
+          value={inputLogin}
+          onChange={(event) => setInputLogin(event.target.value)}
         />
         <button type="submit">Поиск</button>
       </form>
